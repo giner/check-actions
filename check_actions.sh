@@ -116,7 +116,7 @@ check_actions_versions_ignore() {
   local repo=$1
   local ignore_list
 
-  IFS=', ' read -ra ignore_list <<< "$CHECK_ACTIONS_VERSIONS_IGNORE"
+  IFS=', ' read -ra ignore_list <<< "${CHECK_ACTIONS_VERSIONS_IGNORE-}"
 
   for ignore in "${ignore_list[@]}"; do
     [[ $repo =~ ^"$ignore"(/|$)  ]] && return 0
