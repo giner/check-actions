@@ -17,9 +17,12 @@ Opinionated set of checks for GitHub Actions Workflows
         branches:
           - develop
 
+    permissions: {}
+
     jobs:
       checks:
         runs-on: ubuntu-latest
+        timeout-minutes: 5
         steps:
           - name: Checkout Code
             uses: actions/checkout@v3
