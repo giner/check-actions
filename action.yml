@@ -1,0 +1,29 @@
+name: 'Check Actions'
+
+description: "Opinionated set of checks for GitHub Actions Workflows"
+
+inputs:
+  check_permissions:
+    description: "Check whether GITHUB_TOKEN permissions are set to empty on Workflow level"
+    default: true
+  check_timeouts:
+    description: "Check whether all jobs or steps have timeouts configured"
+    default: true
+  check_versions:
+    description: "Check whether versions for all actions are pinned and comments exist (e.g. myaction@23fd21f  # v1.2)"
+    default: true
+  check_versions_ignore:
+    description: "Do not check versions for these organizations and repositories (comma or space separated)"
+    default: "actions,aws-actions"
+
+runs:
+  using: "composite"
+  steps:
+    - run: '"${{ github.action_path }}/check_actions.sh"'
+      shell: bash
+      working-directory: '${{ github.workspace }}/.github/workflows'
+      env:
+        CHECK_ACTIONS_PERMISSIONS: ${{ inputs.check_permissions }}
+        CHECK_ACTIONS_TIMEOUTS: ${{ inputs.check_timeouts }}
+        CHECK_ACTIONS_VERSIONS: ${{ inputs.check_versions }}
+        CHECK_ACTIONS_VERSIONS_IGNORE: ${{ inputs.check_versions_ignore }}
