@@ -25,7 +25,7 @@ Opinionated set of checks for GitHub Actions Workflows
             uses: actions/checkout@v3
 
           - name: Check Actions
-            uses: giner/check-actions@v1.0.0
+            uses: giner/check-actions@2fdabb044c1d6bdd6eeffa298c4b7a3b318db1a5  # v1.0.0
 
 ## Example output
 
