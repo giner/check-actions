@@ -3,12 +3,12 @@ Opinionated set of checks for GitHub Actions Workflows
 
 ## Inputs
 
-| Option                | Required | Default             |
-|-----------------------|----------|---------------------|
-| check_permissions     | false    | true                |
-| check_timeouts        | false    | true                |
-| check_versions        | false    | true                |
-| check_versions_ignore | false    | actions,aws-actions |
+| Option                | Required | Default             | Description                                                                                          | Notes                                                                                                                                                                                                                                                                                     |
+|-----------------------|----------|---------------------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| check_permissions     | false    | true                | Check whether GITHUB_TOKEN permissions are set to empty on Workflow level                            | Read more on [security guides](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) and [using jobs](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs)                                          |
+| check_timeouts        | false    | true                | Check whether all jobs or steps have timeouts configured                                             | Read more about [job timeouts](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes) and [step timeouts](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepstimeout-minutes) |
+| check_versions        | false    | true                | Check whether versions for all actions are pinned and comments exist (e.g. myaction@23fd21f  # v1.2) | Read more about [3rd-party actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)                                                                                                                                   |
+| check_versions_ignore | false    | actions,aws-actions | Do not check versions for these organizations and repositories (comma or space separated)            |                                                                                                                                                                                                                                                                                           |
 
 ## Usage example
 
