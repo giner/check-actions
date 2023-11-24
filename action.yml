@@ -19,7 +19,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: '"${{ github.action_path }}/check_actions.sh"'
+    - run: '"$GITHUB_ACTION_PATH/check_actions.sh"'
       shell: bash
       working-directory: '${{ github.workspace }}/.github/workflows'
       env:
